@@ -1,7 +1,7 @@
 # Folders
 node_modules
 .svelte-kit
-static
+/static/
 
 backend.exe
 main.exe

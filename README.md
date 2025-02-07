@@ -68,8 +68,8 @@ Turns out, its very awkward to talk about this project to people.
 - Maybe keeping tracking of the pages being fetched somewhere would be useful to resume the process and/or skip already fetched pages.
 - A demo version of the website/database would be nice, not much time to do that.
 - Some parts of the project would require a very small refactor to support multiple providers, just moving things to a map or helper functions to return db/data based on the provider.
-- Keep track of the video.m3u8 stream-media-id -> filename in a file or database, this would be useful to avoid making a request for the m3u8.
+- Keep track of the video.m3u8 stream-media-id -> filename in a file or database, this would be useful to avoid making a request for the m3u8 just to get the filename.
 - The download of media used to be handled in a goroutine, allowing for concurrent downloads, but I ended up removing it, maybe using a semaphore to limit the number of downloads(globally?) at a time would be useful.
 - The way the website handles things while fetching the data could be improved, maybe add some spinners or something, the masonry feels like the slowest part of the website.
 - There was a virtual list implementation I made, but I ended up removing it, maybe put it back so the only dependency could be removed.
-- Maybe the logic of output being bigger than input should be used in the gif conversion, found one gif that was bigget than the video it was made from.
+- Maybe the logic of output being bigger than input should be used in the gif conversion, found one gif that was bigger than the video it was made from.
