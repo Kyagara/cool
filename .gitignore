@@ -1,0 +1,10 @@
+# Folders
+node_modules
+.svelte-kit
+static
+
+backend.exe
+main.exe
+*.log
+.env
+*.pem
