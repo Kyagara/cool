@@ -48,11 +48,12 @@ func MakePreviewGif(input string, output string) error {
 		sampleTimes = append(sampleTimes, float64(i)*interval-1)
 	}
 
-	clipPaths := []string{}
+	clipNames := []string{}
 
 	// Loop through each sample time and create a gif
 	for _, startTime := range sampleTimes {
-		clipFile := filepath.Join(postDir, fmt.Sprintf("clip_%d.gif", (int(startTime*1000))))
+		clipName := fmt.Sprintf("clip_%d.gif", (int(startTime * 1000)))
+		clipFile := filepath.Join(postDir, clipName)
 
 		cmd = exec.Command("ffmpeg", "-y", "-ss", fmt.Sprintf("%f", startTime), "-t", "2", "-i", input, "-vf", "fps=15,scale=320:-1:flags=lanczos", "-c:v", "gif", clipFile)
 		err = cmd.Run()
@@ -60,13 +61,13 @@ func MakePreviewGif(input string, output string) error {
 			return err
 		}
 
-		clipPaths = append(clipPaths, clipFile)
+		clipNames = append(clipNames, clipName)
 	}
 
 	// Create a file for ffmpeg containing the list of clips
 	concatFile := filepath.Join(postDir, "concat_list.txt")
 	concatContent := ""
-	for _, clip := range clipPaths {
+	for _, clip := range clipNames {
 		concatContent += fmt.Sprintf("file '%s'\n", clip)
 	}
 
@@ -83,8 +84,8 @@ func MakePreviewGif(input string, output string) error {
 	}
 
 	// Remove intermediate files
-	for _, clip := range clipPaths {
-		err = os.Remove(clip)
+	for _, clip := range clipNames {
+		err = os.Remove(fmt.Sprintf("%s\\%s", postDir, clip))
 		if err != nil {
 			return err
 		}
