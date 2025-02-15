@@ -15,12 +15,13 @@
 
 <div class="flex flex-col items-center justify-center">
   <div class="relative w-1/3 h-32 rounded-2xl shadow-lg overflow-hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+
     <img
       src={`${PUBLIC_URL}/provider/${provider}/${username}/${banner}`}
       alt="User Banner"
-      class="absolute inset-0 w-full h-full object-cover opacity-80"
+      class="absolute w-full h-full object-cover opacity-80"
     />
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
 
     <div class="absolute inset-0 flex items-center p-4 space-x-4">
       <img
