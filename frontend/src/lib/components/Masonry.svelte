@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
 
   import Image from "./Image.svelte";
-  import Video from "./Video.svelte";
 
   let { media, openModal, provider } = $props();
 

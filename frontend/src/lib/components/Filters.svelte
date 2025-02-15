@@ -1,5 +1,5 @@
 <script>
-  let { filters, showSearch, showType, showProvider, media } = $props();
+  let { filters, showSearch, showType, showProvider } = $props();
 </script>
 
 <div class="flex gap-2">

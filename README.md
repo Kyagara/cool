@@ -73,3 +73,4 @@ Turns out, its very awkward to talk about this project to people.
 - The way the website handles things while fetching the data could be improved, maybe add some spinners or something, the masonry feels like the slowest part of the website.
 - There was a virtual list implementation I made, but I ended up removing it, maybe put it back so the only dependency could be removed.
 - Maybe the logic of output being bigger than input should be used in the gif conversion, found one gif that was bigger than the video it was made from.
+- There is no cache revalidation in the service worker, so the cache must be cleared manually.
